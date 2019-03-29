@@ -5,7 +5,7 @@
  * Email: radek.zika@dipcom.cz
  */
 
-namespace SortingEntity\Entity;
+namespace Bajzany\SortingEntity\Entity;
 
 interface ISortingEntity
 {

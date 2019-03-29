@@ -5,7 +5,7 @@
  * Email: radek.zika@dipcom.cz
  */
 
-namespace SortingEntity\Repository;
+namespace Bajzany\SortingEntity\Repository;
 
 use App\BaseRepository;
 use Chomenko\AutoInstall\AutoInstall;

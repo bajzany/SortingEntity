@@ -5,12 +5,12 @@
  * Email: radek.zika@dipcom.cz
  */
 
-namespace SortingEntity\DI;
+namespace Bajzany\SortingEntity\DI;
 
+use Bajzany\SortingEntity\Listeners\SortingListener;
 use Nette\Configurator;
 use Nette\DI\Compiler;
 use Nette\DI\CompilerExtension;
-use SortingEntity\Listeners\SortingListener;
 
 class SortingEntityExtension extends CompilerExtension
 {

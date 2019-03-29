@@ -5,12 +5,12 @@
  * Email: radek.zika@dipcom.cz
  */
 
-namespace SortingEntity\Listeners;
+namespace Bajzany\SortingEntity\Listeners;
 
+use Bajzany\SortingEntity\Entity\ISortingEntity;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Kdyby\Doctrine\Events;
 use Kdyby\Events\Subscriber;
-use SortingEntity\Entity\ISortingEntity;
 
 class SortingListener implements Subscriber
 {
