@@ -18,7 +18,7 @@ class SortingEntityExtension extends CompilerExtension
 	{
 		$builder = $this->getContainerBuilder();
 
-		$builder->addDefinition($this->prefix('tableControl'))
+		$builder->addDefinition($this->prefix('sortingListener'))
 			->setTags(['kdyby.subscriber'])
 			->setFactory(SortingListener::class)
 			->setInject(TRUE);
