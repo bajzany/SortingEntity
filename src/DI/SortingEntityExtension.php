@@ -14,12 +14,13 @@ use Nette\DI\CompilerExtension;
 
 class SortingEntityExtension extends CompilerExtension
 {
+
 	public function loadConfiguration()
 	{
 		$builder = $this->getContainerBuilder();
 
 		$builder->addDefinition($this->prefix('sortingListener'))
-			->setTags(['kdyby.subscriber'])
+			->addTag('kdyby.subscriber')
 			->setFactory(SortingListener::class)
 			->setInject(TRUE);
 	}
