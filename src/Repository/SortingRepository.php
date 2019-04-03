@@ -7,13 +7,11 @@
 
 namespace Bajzany\SortingEntity\Repository;
 
-use App\BaseRepository;
 use Bajzany\SortingEntity\Entity\ISortingEntity;
 use Bajzany\SortingEntity\Exceptions\SortingException;
-use Chomenko\AutoInstall\AutoInstall;
 use Doctrine\Common\Collections\Criteria;
 
-class SortingRepository extends BaseRepository  implements AutoInstall
+class SortingRepository extends AbstractRepository
 {
 
 	/**
@@ -193,6 +191,57 @@ class SortingRepository extends BaseRepository  implements AutoInstall
 		}
 
 	}
+
+	/**
+	 * @param array $list
+	 * @param null $parent
+	 * @return array
+	 */
+	public function getTree(array $list, $parent = NULL)
+	{
+		return $this->treeRecursive($list, $parent);
+	}
+
+	/**
+	 * @param array $list
+	 * @param null $parent
+	 * @return array
+	 */
+	private function treeRecursive(array $list, $parent = NULL)
+	{
+		$tree = [];
+		/*** @var ISortingEntity $item */
+		foreach ($list as $item){
+			if($item->getParentId() === $parent){
+				$childern = $this->treeRecursive($list, $item->getId());
+				$tree[] = [
+					"item" => $item,
+					"count" => count($childern),
+					"children" => $childern,
+				];
+			}
+		}
+		return $tree;
+	}
+
+
+	/**
+	 * @param ISortingEntity $entity
+	 */
+	public function setFirstSorting(ISortingEntity $entity)
+	{
+		$qb = $this->createQueryBuilder('s');
+		$entities = $qb
+			->orderBy('s.sorting', 'ASC')
+			->getQuery()
+			->setMaxResults(1)
+			->getResult();
+		/*** @var ISortingEntity $en */
+		foreach ($entities as $en) {
+			$entity->setSorting($en->getSorting() - 1 );
+		}
+	}
+
 
 	/**
 	 * @param ISortingEntity $entity
