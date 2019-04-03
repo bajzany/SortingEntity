@@ -68,4 +68,9 @@ interface ISortingEntity
 	 */
 	public function setMoved(bool $moved);
 
+	/**
+	 * @return int|null
+	 */
+	public function getParentId(): ?int;
+
 }
