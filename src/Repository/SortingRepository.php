@@ -20,7 +20,7 @@ class SortingRepository extends AbstractRepository
 	 * @param bool $getQueryBuilder
 	 * @return mixed|string
 	 */
-	public function getSorted($parent = NULL, bool $compareParent = TRUE, $getQueryBuilder = FALSE)
+	public function getSorted($parent = NULL, bool $compareParent = FALSE, $getQueryBuilder = FALSE)
 	{
 		$qb = $this->createQueryBuilder('s');
 		if ($compareParent) {

@@ -21,7 +21,7 @@ trait Sortable
 	 *
 	 * @ORM\Column(name="`sorting`", type="integer", options={"default": 0}, nullable=false)
 	 */
-	private $sorting;
+	private $sorting = 0;
 
 	/**
 	 * @var integer
