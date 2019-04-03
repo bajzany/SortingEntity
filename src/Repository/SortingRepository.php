@@ -15,7 +15,7 @@ class SortingRepository extends AbstractRepository
 {
 
 	/**
-	 * @param null $parent
+	 * @param null|ISortingEntity|int $parent
 	 * @param bool $compareParent
 	 * @param bool $getQueryBuilder
 	 * @return mixed|string
@@ -197,8 +197,12 @@ class SortingRepository extends AbstractRepository
 	 * @param null $parent
 	 * @return array
 	 */
-	public function getTree(array $list, $parent = NULL)
+	public function getTree(array $list = NULL, $parent = NULL)
 	{
+		if ($list === NULL) {
+			$list = $this->getSorted();
+		}
+
 		return $this->treeRecursive($list, $parent);
 	}
 
