@@ -14,7 +14,7 @@ trait Sortable
 	 *
 	 * @ORM\Column(name="`parent_id`", type="integer", options={"default": null}, nullable=true)
 	 */
-	private $parentId;
+	private $parentId = NULL;
 
 	/**
 	 * @var integer
@@ -28,7 +28,7 @@ trait Sortable
 	 *
 	 * @ORM\Column(name="`lvl`", type="integer", options={"default": 0}, nullable=false)
 	 */
-	private $lvl;
+	private $lvl = 0;
 
 	/**
 	 * @var bool
