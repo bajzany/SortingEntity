@@ -28,7 +28,7 @@ trait Sortable
 	 *
 	 * @ORM\Column(name="`lvl`", type="integer", options={"default": 0}, nullable=false)
 	 */
-	private $lvl;
+	private $lvl = 0;
 
 	/**
 	 * @var bool
