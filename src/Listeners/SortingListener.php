@@ -72,6 +72,8 @@ class SortingListener implements Subscriber
 							$repository->setLastSortingChildren($entity, $sort);
 						}
 
+						$classMetadata = $em->getClassMetadata(get_class($entity));
+						$uow->recomputeSingleEntityChangeSet($classMetadata, $entity);
 					}
 				}
 			}

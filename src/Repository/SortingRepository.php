@@ -148,7 +148,7 @@ class SortingRepository extends AbstractRepository
 					$this->entityManager->getUnitOfWork()->computeChangeSet($classMetadata, $child);
 				}
 
-				$this->updateChildren($child);
+				$this->updateChildren($child, $changeSet);
 			}
 		}
 	}
@@ -289,7 +289,7 @@ class SortingRepository extends AbstractRepository
 					$this->entityManager->getUnitOfWork()->computeChangeSet($classMetadata, $child);
 				}
 
-				$this->setLastSortingChildren($child, $lastSort);
+				$this->setLastSortingChildren($child, $lastSort, $changeSet);
 			}
 		}
 	}

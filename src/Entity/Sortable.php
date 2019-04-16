@@ -14,7 +14,7 @@ trait Sortable
 	 *
 	 * @ORM\Column(name="`parent_id`", type="integer", options={"default": null}, nullable=true)
 	 */
-	private $parentId;
+	private $parentId = NULL;
 
 	/**
 	 * @var integer
