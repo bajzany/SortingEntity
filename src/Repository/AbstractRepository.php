@@ -6,25 +6,34 @@
 
 namespace Bajzany\SortingEntity\Repository;
 
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
+use Kdyby\Doctrine\EntityManager;
+use Kdyby\Doctrine\EntityRepository;
 
-class AbstractRepository extends EntityRepository
+abstract class AbstractRepository extends EntityRepository
 {
 
 	/**
-	 * @var EntityManagerInterface
+	 * @var EntityManager
 	 */
 	protected $entityManager;
 
 	/**
-	 * {@inheritdoc}
+	 * @param EntityManager $entityManager
+	 * @param ClassMetadata $class
 	 */
-	public function __construct(EntityManagerInterface $em, ClassMetadata $class)
+	public function __construct(EntityManager $entityManager, ClassMetadata $class)
 	{
-		parent::__construct($em, $class);
-		$this->entityManager = $em;
+		$this->entityManager = $entityManager;
+		parent::__construct($entityManager, $class);
+	}
+
+	/**
+	 * @return EntityManager
+	 */
+	public function getEntityManager(): EntityManager
+	{
+		return $this->entityManager;
 	}
 
 }
