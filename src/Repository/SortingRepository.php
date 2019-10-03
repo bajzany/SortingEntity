@@ -97,7 +97,7 @@ class SortingRepository extends AbstractRepository
 	{
 		$children = $entity->getChildren();
 		if (!empty($children)) {
-			$criteria = new Criteria(NULL, ['sorting' => Criteria::ASC]);
+			$criteria = new Criteria(NULL, ['sorting' => Criteria::DESC]);
 			$children = $children->matching($criteria);
 			/*** @var ISortingEntity $child */
 			foreach ($children as $child) {
